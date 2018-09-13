@@ -5,24 +5,24 @@ import styled from 'styled-components';
 import logo from '../../images/logo.png';
 
 const NavbarBlue = styled(Navbar)`
-  background-color: #75d3f4;`
-;
+ background-color: #75d3f4;`
+  ;
 
 const Logo = styled.img`
-  margin-top: 15px;`
-;
+ margin-top: 15px;`
+  ;
 
 const IconUser = styled(Icon)`
-  font-size: 40px !important;`
-;
+ font-size: 40px !important;`
+  ;
 
-const Header = () => (
-  <Row>  
-    <NavbarBlue brand={<Logo src={logo} className="responsive-img col m6 center" />} right>
-      <NavItem href='/logout'>
+const Header = (props) => (
+  <Row>
+    <NavbarBlue href="/timeline" brand={<Logo src={logo} className="responsive-img col m6 center" />} right>
+      <NavItem onClick={() => props.logOut()} >
         Logout
       </NavItem>
-      <NavItem href='/user/x/edit'>
+      <NavItem href={`/user/${props.id}/edit`}>
         <IconUser>account_circle</IconUser>
       </NavItem>
     </NavbarBlue>
